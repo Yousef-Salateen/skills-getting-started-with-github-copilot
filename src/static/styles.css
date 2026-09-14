@@ -12,16 +12,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background: linear-gradient(180deg, #f4f7ff 0%, #eef2ff 100%);
 }
 
 header {
   text-align: center;
-  padding: 20px 0;
+  padding: 24px 0;
   margin-bottom: 30px;
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #1a237e, #3949ab);
   color: white;
-  border-radius: 5px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(26, 35, 126, 0.2);
 }
 
 header h1 {
@@ -33,19 +34,22 @@ main {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  align-items: flex-start;
 }
 
 @media (min-width: 768px) {
   main {
+    display: grid;
     grid-template-columns: 2fr 1fr;
+    align-items: start;
   }
 }
 
 section {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 500px;
 }
@@ -57,21 +61,114 @@ section h3 {
   color: #1a237e;
 }
 
+#activities-list {
+  display: grid;
+  gap: 16px;
+}
+
 .activity-card {
-  margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  margin-bottom: 0;
+  padding: 18px;
+  border: 1px solid #e3e8ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.04);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+  margin: 0;
+  color: #1a237e;
+  font-size: 1.2rem;
+}
+
+.badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .activity-card p {
   margin-bottom: 8px;
+  color: #445;
+}
+
+.participants-panel {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #dfe7ff;
+  border-radius: 8px;
+  background: #f5f7ff;
+}
+
+.participants-panel h5 {
+  margin-bottom: 8px;
+  color: #1a237e;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.participants-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #374151;
+}
+
+.participant-item,
+.participant-empty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #edf2ff;
+}
+
+.participant-empty {
+  justify-content: center;
+  color: #5a647d;
+  font-style: italic;
+}
+
+.participant-email {
+  overflow-wrap: anywhere;
+}
+
+.delete-participant {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.delete-participant:hover {
+  background: #fecaca;
+  transform: scale(1.05);
 }
 
 .form-group {
@@ -88,30 +185,40 @@ section h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ccd3f8;
+  border-radius: 8px;
   font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3949ab;
+  box-shadow: 0 0 0 3px rgba(57, 73, 171, 0.12);
 }
 
 button {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #1a237e, #3949ab);
   color: white;
   border: none;
   padding: 10px 15px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);
 }
 
 button:hover {
-  background-color: #3949ab;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 35, 126, 0.25);
 }
 
 .message {
   margin-top: 20px;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .success {
